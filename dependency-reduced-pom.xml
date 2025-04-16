@@ -67,7 +67,6 @@
             </goals>
             <configuration>
               <transformers>
-                <transformer />
                 <transformer>
                   <mainClass>example.Hello</mainClass>
                 </transformer>
