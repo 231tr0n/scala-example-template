@@ -73,9 +73,6 @@
               <goal>compile</goal>
               <goal>testCompile</goal>
             </goals>
-            <configuration>
-              <args/>
-            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -84,7 +81,8 @@
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.6.0</version>
         <configuration>
-          </configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
         <executions>
           <execution>
             <phase>package</phase>
