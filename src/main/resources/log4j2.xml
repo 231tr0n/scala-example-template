@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://logging.apache.org/xml/ns" xsi:schemaLocation="                        https://logging.apache.org/xml/ns                        https://logging.apache.org/xml/ns/log4j-config-2.xsd">
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://logging.apache.org/xml/ns" xsi:schemaLocation="https://logging.apache.org/xml/ns https://logging.apache.org/xml/ns/log4j-config-2.xsd">
   <Appenders>
     <Console name="CONSOLE">
       <PatternLayout pattern="%highlight{[%5p] [%d{yyyy-MM-dd HH:mm:ss}] [%c{1.}]}{STYLE=DEFAULT, noConsoleNoAnsi=true} - %m%n%throwable"/>
