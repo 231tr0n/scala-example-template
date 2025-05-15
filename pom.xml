@@ -7,16 +7,22 @@
   <name>test</name>
   <description>test</description>
   <properties>
+    <enforce.mvn.version>3.9.9</enforce.mvn.version>
+    <enforce.jdk.version>17</enforce.jdk.version>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <scala.version>2.12.20</scala.version>
+    <scala.compat.version>2.12</scala.compat.version>
+    <spark.version>3.5.5</spark.version>
+    <hadoop.version>3.4.1</hadoop.version>
+    <hive.version>4.0.1</hive.version>
     <mainClass>example.Hello</mainClass>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.scalameta</groupId>
-      <artifactId>munit_2.12</artifactId>
+      <artifactId>munit_${scala.compat.version}</artifactId>
       <version>1.1.1</version>
       <scope>test</scope>
     </dependency>
@@ -27,13 +33,35 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_${scala.compat.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.compat.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-client</artifactId>
+      <version>${hadoop.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hive</groupId>
+      <artifactId>hive-jdbc</artifactId>
+      <version>${hive.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>2.24.3</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api-scala_2.12</artifactId>
+      <artifactId>log4j-api-scala_${scala.compat.version}</artifactId>
       <version>13.1.0</version>
     </dependency>
   </dependencies>
@@ -55,11 +83,11 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>3.9.9</version>
+                  <version>${enforce.mvn.version}</version>
                 </requireMavenVersion>
                 <banDuplicatePomDependencyVersions/>
                 <requireJavaVersion>
-                  <version>8</version>
+                  <version>${enforce.jdk.version}</version>
                 </requireJavaVersion>
               </rules>
             </configuration>
@@ -92,7 +120,7 @@
           <scala>
             <scalafmt>
               <version>3.9.6</version>
-              <scalaMajorVersion>2.12</scalaMajorVersion>
+              <scalaMajorVersion>${scala.compat.version}</scalaMajorVersion>
               <file>${project.basedir}/.scalafmt.conf</file>
             </scalafmt>
           </scala>
@@ -100,7 +128,7 @@
       </plugin>
       <plugin>
         <groupId>io.github.evis</groupId>
-        <artifactId>scalafix-maven-plugin_2.12</artifactId>
+        <artifactId>scalafix-maven-plugin_${scala.compat.version}</artifactId>
         <version>0.1.9_0.14.2</version>
         <executions>
           <execution>
