@@ -15,7 +15,7 @@ mvn spotless:apply
 ```
 ### To lint using scalafix
 ```bash
-mvn scalafix:scalafix
+mvn scalafix:scalafix -Dscalafix.mode=IN_PLACE
 ```
 ### To run the munit tests
 ```bash

@@ -130,6 +130,9 @@
         <groupId>io.github.evis</groupId>
         <artifactId>scalafix-maven-plugin_${scala.compat.version}</artifactId>
         <version>0.1.9_0.14.2</version>
+        <configuration>
+          <mode>CHECK</mode>
+        </configuration>
         <executions>
           <execution>
             <goals>
