@@ -14,16 +14,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <scala.version>2.12.21</scala.version>
     <scala.compat.version>2.12</scala.compat.version>
-    <spark.version>3.5.8</spark.version>
-    <hadoop.version>3.4.3</hadoop.version>
-    <hive.version>4.2.0</hive.version>
+    <log4j.version>2.25.3</log4j.version>
+    <munit.version>1.2.4</munit.version>
     <mainClass>example.Hello</mainClass>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.scalameta</groupId>
       <artifactId>munit_${scala.compat.version}</artifactId>
-      <version>1.2.4</version>
+      <version>${munit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scalameta</groupId>
+      <artifactId>munit-diff_${scala.compat.version}</artifactId>
+      <version>${munit.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -33,31 +38,14 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-core_${scala.compat.version}</artifactId>
-      <version>${spark.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-sql_${scala.compat.version}</artifactId>
-      <version>${spark.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-client</artifactId>
-      <version>${hadoop.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hive</groupId>
-      <artifactId>hive-jdbc</artifactId>
-      <version>${hive.version}</version>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.25.3</version>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -192,7 +180,6 @@
               </excludes>
             </filter>
           </filters>
-          <minimizeJar>true</minimizeJar>
           <createDependencyReducedPom>false</createDependencyReducedPom>
         </configuration>
         <executions>
